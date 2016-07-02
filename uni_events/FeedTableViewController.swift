@@ -28,11 +28,11 @@ class FeedTableViewController: UITableViewController {
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
-        self.navigationController?.navigationBar.barTintColor = Utilies.hexStringToUIColor("001334")
+        self.navigationController?.navigationBar.barTintColor = Utilies.hexStringToUIColor("9b59b6")
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        self.tabBarController?.tabBar.tintColor = Utilies.hexStringToUIColor("001334")
+        self.tabBarController?.tabBar.tintColor = Utilies.hexStringToUIColor("9b59b6")
         
         
         App.fetchEvents { (events) in
@@ -44,9 +44,7 @@ class FeedTableViewController: UITableViewController {
                 
             })
             
-        }
-        
-        
+        }        
         
     }
     
@@ -59,7 +57,7 @@ class FeedTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,14 +95,15 @@ class FeedTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("events cell", forIndexPath: indexPath) as! FeedTableViewCell
         
         cell.updateUI(indexPath)
-        //        cell.title.text = titles[indexPath.row]
-        //        cell.location.text = locations[indexPath.row]
-        //        cell.poster.image = images[indexPath.row]
-        //        cell.cellImageView.image = images[indexPath.row]
         
         cell.layoutMargins = UIEdgeInsetsZero
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        App.Memory.currentEvent = App.Memory.eventList[indexPath.row]
     }
     
     /*

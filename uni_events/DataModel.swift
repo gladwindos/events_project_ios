@@ -14,7 +14,7 @@ class Event : NSObject {
     var id : Int = 0
     var title : String = ""
     var university = [Int]()
-    var poster = NSData()
+    var posterUrl = ""
     var start_date : NSDate = NSDate()
     var end_date : NSDate = NSDate()
     var ticketLink : String = ""

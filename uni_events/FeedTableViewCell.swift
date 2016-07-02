@@ -28,15 +28,55 @@ class FeedTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-        
+    
+    var imageCache = NSCache()
+    
     func updateUI(indexPath: NSIndexPath) {
+        
+        
         
         let allEvents = App.Memory.eventList
         
-        self.title.text = allEvents[indexPath.row].title
-        self.location.text = allEvents[indexPath.row].venue_name
-        self.poster.image = UIImage(data: allEvents[indexPath.row].poster)
-        self.cellImageView.image = UIImage(data: allEvents[indexPath.row].poster)
+        if let eventTitle : String = allEvents[indexPath.row].title {
+            self.title.text = eventTitle
+        }
+        if let eventLocation : String? = allEvents[indexPath.row].venue_name {
+            self.location.text = eventLocation
+        }
+        
+        self.poster.image = nil
+        self.cellImageView.image = nil
+        
+        if let imageUrl : String? = allEvents[indexPath.row].posterUrl {
+            
+            if let image = imageCache.objectForKey(imageUrl!) as? UIImage {
+                
+                self.poster.image = image
+                self.cellImageView.image = image
+            } else {
+                
+                NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: imageUrl!)!, completionHandler: { (data, response, error) in
+                    
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    
+                    let image = UIImage(data: data!)
+                    
+                    self.imageCache.setObject(image!, forKey: imageUrl!)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        self.poster.image = image
+                        self.cellImageView.image = image
+                        
+                    })
+                    
+                    
+                }).resume()
+            }
+        }
         
         
     }

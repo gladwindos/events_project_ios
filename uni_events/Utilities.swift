@@ -32,4 +32,27 @@ class Utilies {
             alpha: CGFloat(1.0)
         )
     }
+    
+    static func myDateTimeFormatter(date: NSDate) -> String {
+        
+        let mydate = date
+        let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateStyle = .FullStyle
+        dateFormatter.dateFormat = "EEEE dd MMMM"
+        
+        let time = date
+        let timeFormatter = NSDateFormatter()
+        timeFormatter.timeStyle = .ShortStyle
+        
+        let dateString = dateFormatter.stringFromDate(mydate)
+        let timeString = timeFormatter.stringFromDate(time)
+        return dateString + ", " + timeString
+    }
 }
+
+
+
+
+
+
+

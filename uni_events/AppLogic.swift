@@ -16,7 +16,7 @@ extension App {
         
         var allEvents = [Event]()
         
-        let url = NSURL(string: "http://127.0.0.1:8000/api/events/")
+        let url = NSURL(string: "http://uni-events-test.eu-west-1.elasticbeanstalk.com/api/events/")
         NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
             if error != nil {
                 print(error)
@@ -42,16 +42,10 @@ extension App {
                     if let university = dict["university"] as? [Int] {
                         newEvent.university = university
                     }
-                    
-                    var poster = NSData()
-                    
-                    if let posterStr = dict["poster"] as? String {
+                                        
+                    if let posterUrl = dict["poster"] as? String {
                         
-                        let posterUrl = NSURL(string: posterStr)!
-                        
-                        poster = NSData(contentsOfURL: posterUrl)!
-                        
-                        newEvent.poster = poster
+                        newEvent.posterUrl = posterUrl
                         
                     }
                     
