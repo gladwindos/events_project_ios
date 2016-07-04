@@ -1,18 +1,26 @@
 //
-//  AppLogic.swift
+//  TestViewController.swift
 //  uni_events
 //
-//  Created by Gladwin Dosunmu on 29/06/2016.
+//  Created by Gladwin Dosunmu on 04/07/2016.
 //  Copyright © 2016 Gladwin Dosunmu. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-extension App {
+class TestViewController: UIViewController {
     
-
-    static func fetchEvents(completionHandler : (events: [[Event]]) -> Void) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        
+        fetchEvents { (events) in
+            
+        }
+    }
+    
+    func fetchEvents(completionHandler : (events: [[Event]]) -> Void) {
         
         var counter = 0
         
@@ -108,12 +116,14 @@ extension App {
                         switch order {
                             
                         case .OrderedDescending:
+                            print("DESCENDING")
                             allEvents.append([])
                             counter += 1
                             allEvents[counter].append(newEvent)
                         case .OrderedAscending:
-                            print("ASCENDING?")
+                            print("ASCENDING")
                         case .OrderedSame:
+                            print("SAME")
                             allEvents[counter].append(newEvent)
                         }
                         
@@ -124,7 +134,9 @@ extension App {
                 }
                 
                 completionHandler(events: allEvents)
-                print("fetch")                
+                print("fetch")
+                print(allEvents)
+                
                 
             } catch let jsonError {
                 print(jsonError)
@@ -135,15 +147,20 @@ extension App {
         
     }
     
-
-    
-    static func getDateFromString(string: String) -> NSDate {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssz"
-        return dateFormatter.dateFromString(string)!
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
-
-
-
-

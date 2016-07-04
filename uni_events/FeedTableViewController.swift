@@ -10,11 +10,6 @@ import UIKit
 
 class FeedTableViewController: UITableViewController {
     
-    //    let titles = ["Barfest", "Stamina", "Project X", "Acs Summer Break", "Big Narstie"]
-    //
-    //    let locations = ["Club Republic", "The Forum", "Club Batchwood", "Northampton", "The Forum"]
-    //
-    //    let images = [UIImage(named: "barfest_image"), UIImage(named: "stamina"), UIImage(named: "projectx"), UIImage(named: "acs_summer_break"), UIImage(named: "big_narstie_forum")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +23,11 @@ class FeedTableViewController: UITableViewController {
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
-        self.navigationController?.navigationBar.barTintColor = Utilies.hexStringToUIColor("9b59b6")
+        self.navigationController?.navigationBar.barTintColor = Utilies.hexStringToUIColor("8e44ad")
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        self.tabBarController?.tabBar.tintColor = Utilies.hexStringToUIColor("9b59b6")
+        self.tabBarController?.tabBar.tintColor = Utilies.hexStringToUIColor("8e44ad ")
         
         
         App.fetchEvents { (events) in
@@ -57,12 +52,12 @@ class FeedTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return App.Memory.sortedEvents.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows        
-        return App.Memory.eventList.count
+        return App.Memory.sortedEvents[section].count
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -87,7 +82,11 @@ class FeedTableViewController: UITableViewController {
         return CGFloat.min
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Tuesday 21 June 2016"
+//        let headerTitle = App.Memory.sortedEvents[section][0].start_date
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEEE dd MMMM"
+        let headerTitle = dateFormatter.stringFromDate(App.Memory.sortedEvents[section][0].start_date)
+        return headerTitle
     }
     
     
@@ -103,7 +102,7 @@ class FeedTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        App.Memory.currentEvent = App.Memory.eventList[indexPath.row]
+        App.Memory.currentEvent = App.Memory.sortedEvents[indexPath.section][indexPath.row]
     }
     
     /*

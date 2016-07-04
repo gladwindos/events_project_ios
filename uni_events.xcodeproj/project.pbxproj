@@ -16,6 +16,7 @@
 		BE8911B31D195BA500A84C71 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8911B21D195BA500A84C71 /* FeedTableViewController.swift */; };
 		BE8911B71D1992F300A84C71 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8911B61D1992F300A84C71 /* Utilities.swift */; };
 		BE8FCF271D2516EB00E533A3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8FCF261D2516EB00E533A3 /* DetailViewController.swift */; };
+		BED178B81D2AE3C6004649FD /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED178B71D2AE3C6004649FD /* TestViewController.swift */; };
 		BED4DD201D23B76C00737544 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED4DD1F1D23B76C00737544 /* DataModel.swift */; };
 		BED4DD221D23C85100737544 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED4DD211D23C85100737544 /* App.swift */; };
 		BED4DD261D23C88A00737544 /* AppMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED4DD251D23C88A00737544 /* AppMemory.swift */; };
@@ -34,6 +35,7 @@
 		BE8911B21D195BA500A84C71 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		BE8911B61D1992F300A84C71 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BE8FCF261D2516EB00E533A3 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BED178B71D2AE3C6004649FD /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		BED4DD1F1D23B76C00737544 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		BED4DD211D23C85100737544 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		BED4DD251D23C88A00737544 /* AppMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMemory.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				BE8911A11D194BBE00A84C71 /* LaunchScreen.storyboard */,
 				BE8911A41D194BBE00A84C71 /* Info.plist */,
 				BE89119C1D194BBE00A84C71 /* uni_events.xcdatamodeld */,
+				BED178B71D2AE3C6004649FD /* TestViewController.swift */,
 			);
 			path = uni_events;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			files = (
 				BED4DD281D23C8CC00737544 /* AppLogic.swift in Sources */,
 				BE8911961D194BBE00A84C71 /* AppDelegate.swift in Sources */,
+				BED178B81D2AE3C6004649FD /* TestViewController.swift in Sources */,
 				BE8911B71D1992F300A84C71 /* Utilities.swift in Sources */,
 				BE8911AD1D19535100A84C71 /* FeedTableViewCell.swift in Sources */,
 				BE89119E1D194BBE00A84C71 /* uni_events.xcdatamodeld in Sources */,

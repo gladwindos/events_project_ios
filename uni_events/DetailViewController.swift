@@ -41,6 +41,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
         if let eventDate : String? = Utilies.myDateTimeFormatter(currentEvent.start_date) {
             date.text = eventDate
+            print(eventDate)
         }
         if let eventDescription : String? = currentEvent.main_description {
             main_description.text = eventDescription

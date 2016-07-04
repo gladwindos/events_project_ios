@@ -14,4 +14,6 @@ class AppMemory {
     
     var currentEvent = Event()
     
+    var sortedEvents : [[Event]] = []
+    
 }

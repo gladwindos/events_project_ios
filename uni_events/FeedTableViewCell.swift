@@ -35,19 +35,19 @@ class FeedTableViewCell: UITableViewCell {
         
         
         
-        let allEvents = App.Memory.eventList
+        let allEvents = App.Memory.sortedEvents
         
-        if let eventTitle : String = allEvents[indexPath.row].title {
+        if let eventTitle : String = allEvents[indexPath.section][indexPath.row].title {
             self.title.text = eventTitle
         }
-        if let eventLocation : String? = allEvents[indexPath.row].venue_name {
+        if let eventLocation : String? = allEvents[indexPath.section][indexPath.row].venue_name {
             self.location.text = eventLocation
         }
         
         self.poster.image = nil
         self.cellImageView.image = nil
         
-        if let imageUrl : String? = allEvents[indexPath.row].posterUrl {
+        if let imageUrl : String? = allEvents[indexPath.section][indexPath.row].posterUrl {
             
             if let image = imageCache.objectForKey(imageUrl!) as? UIImage {
                 

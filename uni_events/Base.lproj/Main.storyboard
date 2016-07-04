@@ -29,13 +29,13 @@
         <scene sceneID="Is5-Wx-vYw">
             <objects>
                 <tableViewController storyboardIdentifier="Main Feed" id="hbw-mx-BMU" customClass="FeedTableViewController" customModule="uni_events" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="104" sectionHeaderHeight="18" sectionFooterHeight="1" id="Vbc-3b-0ga">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vbc-3b-0ga">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="events cell" rowHeight="140" id="rdf-9Z-Pnh" customClass="FeedTableViewCell" customModule="uni_events" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="140"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdf-9Z-Pnh" id="rs7-YT-nq5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
@@ -142,7 +142,7 @@
         <!--Item-->
         <scene sceneID="lFQ-Rd-9R8">
             <objects>
-                <viewController id="UwB-xq-zIi" sceneMemberID="viewController">
+                <viewController id="UwB-xq-zIi" customClass="TestViewController" customModule="uni_events" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5CV-Yw-khf"/>
                         <viewControllerLayoutGuide type="bottom" id="WN3-Yl-z04"/>
@@ -387,7 +387,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.60784313729999995" green="0.34901960780000002" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.55686274509803924" green="0.26666666666666666" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="300" id="1gu-oZ-wZ4"/>
                                                 <constraint firstItem="wDe-Xa-ZPZ" firstAttribute="centerX" secondItem="Gxs-5g-XxB" secondAttribute="centerX" id="4xI-Zu-A7C"/>

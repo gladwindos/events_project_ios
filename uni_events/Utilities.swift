@@ -42,6 +42,7 @@ class Utilies {
         
         let time = date
         let timeFormatter = NSDateFormatter()
+        timeFormatter.timeZone = NSTimeZone(name: "UTC")
         timeFormatter.timeStyle = .ShortStyle
         
         let dateString = dateFormatter.stringFromDate(mydate)
