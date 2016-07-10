@@ -19,6 +19,7 @@ extension App {
         var allEvents = [[Event]]()
         
         let url = NSURL(string: "http://uni-events-test.eu-west-1.elasticbeanstalk.com/api/events/")
+//        let url = NSURL(string: "http://127.0.0.1:8000/api/events/")
         NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
             if error != nil {
                 print(error)
@@ -91,6 +92,9 @@ extension App {
                         newEvent.contact_details = contact_details
                     }
                     
+                    if let favourite_ids = dict["auth0_favourite_ids"] as? [String] {
+                        newEvent.favourites_ids = favourite_ids
+                    }
                     
                     
                     
@@ -103,16 +107,16 @@ extension App {
                         
                     } else {
                         
-                        let order = NSCalendar.currentCalendar().compareDate(newEvent.start_date, toDate: allEvents[counter][0].start_date,                                                       toUnitGranularity: .Day)
+                        let order = NSCalendar.currentCalendar().compareDate(allEvents[counter][0].start_date, toDate: newEvent.start_date,                                                       toUnitGranularity: .Day)
                         
                         switch order {
                             
                         case .OrderedDescending:
+                            print("Descending?")
+                        case .OrderedAscending:
                             allEvents.append([])
                             counter += 1
                             allEvents[counter].append(newEvent)
-                        case .OrderedAscending:
-                            print("ASCENDING?")
                         case .OrderedSame:
                             allEvents[counter].append(newEvent)
                         }
@@ -124,7 +128,7 @@ extension App {
                 }
                 
                 completionHandler(events: allEvents)
-                print("fetch")                
+                print("fetch")
                 
             } catch let jsonError {
                 print(jsonError)

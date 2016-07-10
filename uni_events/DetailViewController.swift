@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Lock
+import SimpleKeychain
+import Auth0
+import Alamofire
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {
 
@@ -24,10 +28,72 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var findTickets: UIView!
     
+    func UserInEventFavourites(event: Event, user: User) -> Bool {
+        
+        if event.favourites_ids.contains(user.profile!.userId) {
+            return true
+        }
+        return false
+    }
+    
+    @IBAction func moreButton(sender: AnyObject) {
+        
+        let currentEvent = App.Memory.currentEvent
+        let currentUser = App.Memory.currentUser
+        
+        let actionSheetController: UIAlertController = UIAlertController(title: "Options", message: "", preferredStyle: .ActionSheet)
+        
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            print("Cancel")
+        }
+        actionSheetController.addAction(cancelActionButton)
+        
+        var addOrRemove = ""
+        
+        if UserInEventFavourites(currentEvent, user: currentUser) {
+            addOrRemove = "Remove from"
+        } else {
+            addOrRemove = "Add to"
+        }
+        
+        
+        let FavouritesActionButton: UIAlertAction = UIAlertAction(title: "\(addOrRemove) favourites", style: .Default)
+        { action -> Void in
+            print("Add to favourites")
+//            let url = "http://127.0.0.1:8000/api/events/\(currentEvent.id)/update-favourites/"
+            
+            let url = "http://uni-events-test.eu-west-1.elasticbeanstalk.com/api/events/\(currentEvent.id)/update-favourites/"
+            
+            let parameters = ["auth0_favourite_ids" : currentUser.profile!.userId]
+            
+            let headers = ["Accept": "application/json"]
+            
+            Alamofire.request(.PUT, url, parameters: parameters, encoding: .JSON, headers: headers)
+                .responseJSON { response in
+                    debugPrint(response)
+            }
+            
+            if self.UserInEventFavourites(currentEvent, user: currentUser) {
+                // user has just been removed from favourites
+                currentEvent.favourites_ids.removeObject(currentUser.profile!.userId)
+            } else {
+                currentEvent.favourites_ids.append(currentUser.profile!.userId)
+            }
+        }
+        actionSheetController.addAction(FavouritesActionButton)
+        
+        let ShareActionButton: UIAlertAction = UIAlertAction(title: "Share", style: .Default)
+        { action -> Void in
+            print("Share")
+        }
+        actionSheetController.addAction(ShareActionButton)
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(App.Memory.currentUser.profile!.userId)
+        print(App.Memory.currentEvent.favourites_ids)
         // Do any additional setup after loading the view.
         scrollView.delegate = self
         
@@ -41,7 +107,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
         if let eventDate : String? = Utilies.myDateTimeFormatter(currentEvent.start_date) {
             date.text = eventDate
-            print(eventDate)
         }
         if let eventDescription : String? = currentEvent.main_description {
             main_description.text = eventDescription

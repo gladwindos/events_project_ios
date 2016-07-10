@@ -13,7 +13,6 @@ class FeedTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -21,13 +20,15 @@ class FeedTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.edgesForExtendedLayout = UIRectEdge.None
         
+//        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
-        self.navigationController?.navigationBar.barTintColor = Utilies.hexStringToUIColor("8e44ad")
+//        self.navigationController?.navigationBar.barTintColor = Utilies.hexStringToUIColor("8e44ad")
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        self.tabBarController?.tabBar.tintColor = Utilies.hexStringToUIColor("8e44ad ")
+//        self.tabBarController?.tabBar.tintColor = Utilies.hexStringToUIColor("8e44ad ")
         
         
         App.fetchEvents { (events) in
@@ -42,6 +43,18 @@ class FeedTableViewController: UITableViewController {
         }        
         
     }
+    override func viewWillAppear(animated: Bool) {
+//        App.fetchEvents { (events) in
+//            
+//            
+//            dispatch_async(dispatch_get_main_queue(), {
+//                
+//                self.tableView.reloadData()
+//                
+//            })
+//            
+//        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,12 +65,12 @@ class FeedTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return App.Memory.sortedEvents.count
+        return App.Memory.sortedEvents!.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows        
-        return App.Memory.sortedEvents[section].count
+        return App.Memory.sortedEvents![section].count
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -85,7 +98,7 @@ class FeedTableViewController: UITableViewController {
 //        let headerTitle = App.Memory.sortedEvents[section][0].start_date
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "EEEE dd MMMM"
-        let headerTitle = dateFormatter.stringFromDate(App.Memory.sortedEvents[section][0].start_date)
+        let headerTitle = dateFormatter.stringFromDate(App.Memory.sortedEvents![section][0].start_date)
         return headerTitle
     }
     
@@ -102,7 +115,7 @@ class FeedTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        App.Memory.currentEvent = App.Memory.sortedEvents[indexPath.section][indexPath.row]
+        App.Memory.currentEvent = App.Memory.sortedEvents![indexPath.section][indexPath.row]
     }
     
     /*

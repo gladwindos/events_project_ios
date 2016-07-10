@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Lock
+import SimpleKeychain
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +19,84 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        self.window?.tintColor = UIColor.whiteColor()
+        
+//        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
+        UINavigationBar.appearance().barTintColor = Utilies.hexStringToUIColor("8e44ad")
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        UITabBar.appearance().tintColor = Utilies.hexStringToUIColor("8e44ad")
+        
+        let tbc : TabBarController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("tab bar controller") as! TabBarController
+        
+        let keychain = A0SimpleKeychain(service: "Auth0")
+        guard let idToken = keychain.stringForKey("id_token") else {
+            // idToken doesn't exist, user has to enter his credentials to log in
+            // Present A0Lock Login   
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
+                
+            })
+            return true
+        }
+        // idToken exists
+        // Validate idToken
+        let client = A0Lock.sharedLock().apiClient()
+        client.fetchUserProfileWithIdToken(idToken, success: { profile in
+            
+            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+            // ✅ At this point, you can log the user into your app, by navigating to the corresponding screen
+            
+            App.Memory.currentUser.loggedIn = true
+            App.Memory.currentUser.idToken = idToken
+            App.Memory.currentUser.profile = profile
+            
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
+                
+            })
+            
+            }, failure: { error in
+                // ⚠️ idToken has expired or is no longer valid
+                let keychain = A0SimpleKeychain(service: "Auth0")
+                guard let refreshToken = keychain.stringForKey("refresh_token") else {
+                    keychain.clearAll()
+                    return
+                }
+                let client = A0Lock.sharedLock().apiClient()
+                client.fetchNewIdTokenWithRefreshToken(refreshToken,
+                    parameters: nil,
+                    success: { newToken in
+                        // Just got a new idToken!
+                        // Don't forget to store it...
+                        keychain.setString(newToken.idToken, forKey: "id_token")
+                        // ✅ At this point, you can log the user into your app, by navigating to the corresponding screen
+                        client.fetchUserProfileWithIdToken(newToken.idToken,
+                            success: { profile in
+                                // Our idToken is still valid...
+                                // We store the fetched user profile
+                                keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+                                // ✅ At this point, you can log the user into your app, by navigating to the corresponding screen
+                                App.Memory.currentUser.loggedIn = true
+                                App.Memory.currentUser.idToken = newToken.idToken
+                                App.Memory.currentUser.profile = profile
+                                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
+                                    
+                                })
+                            },
+                            failure: { error in
+                                // ⚠️ idToken has expired or is no longer valid
+                                // See step 4
+                        })
+                        
+                    },
+                    failure: { error in
+                        // refreshToken is no longer valid (e.g. it has been revoked)
+                        // Cleaning stored values since they are no longer valid
+                        keychain.clearAll()
+                        // ⛔️ At this point, you should ask the user to enter his credentials again!
+                })
+        })
         return true
     }
 

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Lock
 
 class Event : NSObject {
     
@@ -24,22 +25,12 @@ class Event : NSObject {
     var venue_city : String = ""
     var venue_postcode : String = ""
     var contact_details : String = ""
+    var favourites_ids : [String] = []
+}
+
+class User : NSObject {
+    var loggedIn : Bool = false
+    var profile: A0UserProfile? = A0UserProfile()
+    var idToken : String = ""
     
-//    init(id : Int, title: String, university: Int, poster: NSData, start_date: NSDate, end_date: NSDate, ticketLink: String, main_description: String, venue_name: String, venue_address: String, venue_city: String, venue_postcode: String, contact_details: String) {
-//        
-//        self.id = id
-//        self.title = title
-//        self.university = university
-//        self.poster = poster
-//        self.start_date = start_date
-//        self.end_date = end_date
-//        self.ticketLink = ticketLink
-//        self.main_description = main_description
-//        self.venue_name = venue_name
-//        self.venue_address = venue_address
-//        self.venue_city = venue_city
-//        self.venue_postcode = venue_postcode
-//        self.contact_details = contact_details
-//    }
-//    
 }

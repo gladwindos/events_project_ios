@@ -14,6 +14,8 @@ class AppMemory {
     
     var currentEvent = Event()
     
-    var sortedEvents : [[Event]] = []
+    var sortedEvents : [[Event]]? = []
+    
+    var currentUser = User()
     
 }
