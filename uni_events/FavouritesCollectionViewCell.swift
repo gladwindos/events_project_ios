@@ -12,6 +12,8 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cellImage: UIImageView!
     
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     @IBOutlet weak var title: UILabel!
     
     var imageCache = NSCache()
@@ -27,6 +29,7 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
             if let image = imageCache.objectForKey(imageUrl!) as? UIImage {
                 
                 self.cellImage.image = image
+                self.backgroundImage.image = image
                 
             } else {
                 
@@ -44,6 +47,7 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
                     dispatch_async(dispatch_get_main_queue(), {
                         
                         self.cellImage.image = image
+                        self.backgroundImage.image = image
                         
                     })
                     

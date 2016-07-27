@@ -12,6 +12,8 @@
 		BE3F39781D328BDE009255DF /* FavouritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3F39771D328BDE009255DF /* FavouritesCollectionViewController.swift */; };
 		BE3F397C1D32BB56009255DF /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3F397B1D32BB56009255DF /* FavouritesCollectionViewCell.swift */; };
 		BE4505131D2D72B100BC91D1 /* FavouritesLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4505121D2D72B100BC91D1 /* FavouritesLoginViewController.swift */; };
+		BE8108531D47B5F700A4D663 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8108521D47B5F700A4D663 /* SWRevealViewController.m */; };
+		BE8108551D47BBA300A4D663 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8108541D47BBA300A4D663 /* MenuTableViewController.swift */; };
 		BE8911961D194BBE00A84C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8911951D194BBE00A84C71 /* AppDelegate.swift */; };
 		BE89119B1D194BBE00A84C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8911991D194BBE00A84C71 /* Main.storyboard */; };
 		BE89119E1D194BBE00A84C71 /* uni_events.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE89119C1D194BBE00A84C71 /* uni_events.xcdatamodeld */; };
@@ -21,6 +23,7 @@
 		BE8911B31D195BA500A84C71 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8911B21D195BA500A84C71 /* FeedTableViewController.swift */; };
 		BE8911B71D1992F300A84C71 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8911B61D1992F300A84C71 /* Utilities.swift */; };
 		BE8FCF271D2516EB00E533A3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8FCF261D2516EB00E533A3 /* DetailViewController.swift */; };
+		BED333431D4910F3009237A2 /* FavouritesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED333421D4910F3009237A2 /* FavouritesNavigationController.swift */; };
 		BED4DD201D23B76C00737544 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED4DD1F1D23B76C00737544 /* DataModel.swift */; };
 		BED4DD221D23C85100737544 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED4DD211D23C85100737544 /* App.swift */; };
 		BED4DD261D23C88A00737544 /* AppMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED4DD251D23C88A00737544 /* AppMemory.swift */; };
@@ -35,6 +38,10 @@
 		BE3F39771D328BDE009255DF /* FavouritesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewController.swift; sourceTree = "<group>"; };
 		BE3F397B1D32BB56009255DF /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE4505121D2D72B100BC91D1 /* FavouritesLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesLoginViewController.swift; sourceTree = "<group>"; };
+		BE8108501D47B5F600A4D663 /* uni_events-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uni_events-Bridging-Header.h"; sourceTree = "<group>"; };
+		BE8108511D47B5F700A4D663 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		BE8108521D47B5F700A4D663 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		BE8108541D47BBA300A4D663 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		BE8911921D194BBE00A84C71 /* uni_events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uni_events.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8911951D194BBE00A84C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE89119A1D194BBE00A84C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +53,7 @@
 		BE8911B21D195BA500A84C71 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		BE8911B61D1992F300A84C71 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BE8FCF261D2516EB00E533A3 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BED333421D4910F3009237A2 /* FavouritesNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesNavigationController.swift; sourceTree = "<group>"; };
 		BED4DD1F1D23B76C00737544 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		BED4DD211D23C85100737544 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		BED4DD251D23C88A00737544 /* AppMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMemory.swift; sourceTree = "<group>"; };
@@ -78,6 +86,7 @@
 		BE3F39791D32B640009255DF /* Favourites */ = {
 			isa = PBXGroup;
 			children = (
+				BED333421D4910F3009237A2 /* FavouritesNavigationController.swift */,
 				BE4505121D2D72B100BC91D1 /* FavouritesLoginViewController.swift */,
 				BE3F39771D328BDE009255DF /* FavouritesCollectionViewController.swift */,
 				BE3F397B1D32BB56009255DF /* FavouritesCollectionViewCell.swift */,
@@ -91,6 +100,17 @@
 				BE3F39751D328AC2009255DF /* TabBarController.swift */,
 			);
 			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		BE81084F1D47B5DE00A4D663 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE8108501D47B5F600A4D663 /* uni_events-Bridging-Header.h */,
+				BE8108511D47B5F700A4D663 /* SWRevealViewController.h */,
+				BE8108521D47B5F700A4D663 /* SWRevealViewController.m */,
+				BE8911A41D194BBE00A84C71 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		BE8911891D194BBE00A84C71 = {
@@ -119,13 +139,14 @@
 				BE8FCF2A1D25174C00E533A3 /* Events */,
 				BE8FCF291D25173500E533A3 /* App Logic */,
 				BE8FCF281D25171100E533A3 /* Model */,
+				BE81084F1D47B5DE00A4D663 /* Supporting Files */,
 				BE8911951D194BBE00A84C71 /* AppDelegate.swift */,
 				BE8911991D194BBE00A84C71 /* Main.storyboard */,
 				BE89119F1D194BBE00A84C71 /* Assets.xcassets */,
 				BE8911A11D194BBE00A84C71 /* LaunchScreen.storyboard */,
-				BE8911A41D194BBE00A84C71 /* Info.plist */,
 				BE89119C1D194BBE00A84C71 /* uni_events.xcdatamodeld */,
 				BEEC902D1D2EDD5F00B94BE1 /* SettingsTableViewController.swift */,
+				BE8108541D47BBA300A4D663 /* MenuTableViewController.swift */,
 			);
 			path = uni_events;
 			sourceTree = "<group>";
@@ -300,10 +321,13 @@
 				BED4DD261D23C88A00737544 /* AppMemory.swift in Sources */,
 				BE8911B31D195BA500A84C71 /* FeedTableViewController.swift in Sources */,
 				BE8FCF271D2516EB00E533A3 /* DetailViewController.swift in Sources */,
+				BE8108551D47BBA300A4D663 /* MenuTableViewController.swift in Sources */,
+				BE8108531D47B5F700A4D663 /* SWRevealViewController.m in Sources */,
 				BE3F397C1D32BB56009255DF /* FavouritesCollectionViewCell.swift in Sources */,
 				BE3F39761D328AC2009255DF /* TabBarController.swift in Sources */,
 				BED4DD221D23C85100737544 /* App.swift in Sources */,
 				BED4DD201D23B76C00737544 /* DataModel.swift in Sources */,
+				BED333431D4910F3009237A2 /* FavouritesNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,10 +441,13 @@
 			baseConfigurationReference = D921379EDFA3D20AA98F0F55 /* Pods-uni_events.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = uni_events/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gladwin.uni-events";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uni_events/uni_events-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -429,10 +456,12 @@
 			baseConfigurationReference = 69E1008DF9D04A2D71ED0B1F /* Pods-uni_events.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = uni_events/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gladwin.uni-events";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uni_events/uni_events-Bridging-Header.h";
 			};
 			name = Release;
 		};

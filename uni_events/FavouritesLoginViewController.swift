@@ -12,6 +12,7 @@ import SimpleKeychain
 
 class FavouritesLoginViewController: UIViewController {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBAction func loginButton(sender: AnyObject) {        
         let controller = A0Lock.sharedLock().newLockViewController()
         controller.closable = true
@@ -30,6 +31,11 @@ class FavouritesLoginViewController: UIViewController {
             print(App.Memory.currentUser.profile!.email)
             // Don't forget to dismiss the Lock controller
             controller.dismissViewControllerAnimated(true, completion: nil)
+            
+            let favNav = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("favourites nav")
+            
+            self.presentViewController(favNav, animated: true, completion: nil)
+            
         }
         A0Lock.sharedLock().presentLockController(controller, fromController: self)
         
@@ -38,6 +44,10 @@ class FavouritesLoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.title = "Favourites"
+        
+        menuButton.target = self.revealViewController()
+        
+        menuButton.action = Selector("revealToggle:")
     }
     
     override func didReceiveMemoryWarning() {

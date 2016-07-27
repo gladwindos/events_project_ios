@@ -10,6 +10,7 @@ import UIKit
 
 class FeedTableViewController: UITableViewController {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,22 +18,13 @@ class FeedTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        self.edgesForExtendedLayout = UIRectEdge.None
         
-//        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.edgesForExtendedLayout = UIRectEdge.None
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
-//        self.navigationController?.navigationBar.barTintColor = Utilies.hexStringToUIColor("8e44ad")
-        
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
-//        self.tabBarController?.tabBar.tintColor = Utilies.hexStringToUIColor("8e44ad ")
-        
         
         App.fetchEvents { (events) in
-            
             
             dispatch_async(dispatch_get_main_queue(), {
                 
@@ -40,7 +32,15 @@ class FeedTableViewController: UITableViewController {
                 
             })
             
-        }        
+        }
+        
+        menuButton.target = self.revealViewController()
+        
+        menuButton.action = Selector("revealToggle:")
+        
+
+        print(App.Memory.currentUser.loggedIn)
+        
         
     }
     override func viewWillAppear(animated: Bool) {

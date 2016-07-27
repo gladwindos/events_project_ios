@@ -35,9 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let idToken = keychain.stringForKey("id_token") else {
             // idToken doesn't exist, user has to enter his credentials to log in
             // Present A0Lock Login   
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
-                
-            })
+//            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
+//                
+//            })
             return true
         }
         // idToken exists
@@ -52,9 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             App.Memory.currentUser.idToken = idToken
             App.Memory.currentUser.profile = profile
             
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
-                
-            })
+//            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
+//                
+//            })
             
             }, failure: { error in
                 // ⚠️ idToken has expired or is no longer valid
@@ -80,9 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 App.Memory.currentUser.loggedIn = true
                                 App.Memory.currentUser.idToken = newToken.idToken
                                 App.Memory.currentUser.profile = profile
-                                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
-                                    
-                                })
+//                                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
+//                                    
+//                                })
                             },
                             failure: { error in
                                 // ⚠️ idToken has expired or is no longer valid

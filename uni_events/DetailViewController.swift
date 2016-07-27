@@ -92,8 +92,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(App.Memory.currentUser.profile!.userId)
-        print(App.Memory.currentEvent.favourites_ids)
         // Do any additional setup after loading the view.
         scrollView.delegate = self
         
@@ -139,6 +137,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                     
                 }).resume()
         }
+        print(App.Memory.currentUser.loggedIn)
         
     }
     

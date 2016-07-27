@@ -12,6 +12,7 @@ private let reuseIdentifier = "Cell"
 
 class FavouritesCollectionViewController: UICollectionViewController {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     var userFavourites : [Event] = []
 
     override func viewDidLoad() {
@@ -26,6 +27,10 @@ class FavouritesCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         
         self.title = "Favourites"
+        
+        menuButton.target = self.revealViewController()
+        
+        menuButton.action = Selector("revealToggle:")
         
         
     }

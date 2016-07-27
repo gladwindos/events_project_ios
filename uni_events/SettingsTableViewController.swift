@@ -59,12 +59,16 @@ class SettingsTableViewController: UITableViewController {
             let keychain = A0SimpleKeychain(service: "Auth0")
             keychain.clearAll()
             App.Memory.currentUser.loggedIn = false
+            App.Memory.currentUser.profile = nil
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
         } else {
             let controller = A0Lock.sharedLock().newLockViewController()
             controller.closable = true
             controller.onAuthenticationBlock = { profile, token in
                 // Do something with token  profile. e.g.: save them.
-                // Lock will not save these objects for you.
+                // Lock will no t save these objects for you.
                 
                 let keychain = A0SimpleKeychain(service: "Auth0")
                 keychain.setString(token!.idToken, forKey: "id_token")
