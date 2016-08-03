@@ -44,8 +44,8 @@ class FeedTableViewCell: UITableViewCell {
             self.location.text = eventLocation
         }
         
-        self.poster.image = nil
-        self.cellImageView.image = nil
+        self.poster.image = UIImage(named: "white")
+        self.cellImageView.image = UIImage(named: "white")
         
         if let imageUrl : String? = allEvents![indexPath.section][indexPath.row].posterUrl {
             

@@ -12,6 +12,11 @@ class FeedTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    
+    @IBAction func searchButton(sender: UIBarButtonItem) {
+    }
+    var activityIndicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -19,15 +24,26 @@ class FeedTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         
+        activityIndicator = UIActivityIndicatorView(frame: self.view.frame)
+        activityIndicator.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(activityIndicator)
+        
         self.edgesForExtendedLayout = UIRectEdge.None
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
+        App.authenticateUser()
         
+        activityIndicator.startAnimating()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         App.fetchEvents { (events) in
             
             dispatch_async(dispatch_get_main_queue(), {
-                
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 self.tableView.reloadData()
                 
             })
@@ -38,6 +54,11 @@ class FeedTableViewController: UITableViewController {
         
         menuButton.action = Selector("revealToggle:")
         
+        if self.revealViewController() != nil {
+            
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        }
 
         print(App.Memory.currentUser.loggedIn)
         

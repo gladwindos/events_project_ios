@@ -12,6 +12,8 @@ import SimpleKeychain
 
 class MenuTableViewController: UITableViewController {
     
+    var currentCell = NSIndexPath(forRow: 0, inSection: 0)
+    
     var auth = String()
     
     var menu = [String]()
@@ -24,7 +26,7 @@ class MenuTableViewController: UITableViewController {
             auth = "Login"
         }
         
-        menu = ["Events","Favourites", auth]
+        menu = ["Discover","Favourites", "Contact Us", auth]
         
     }
     
@@ -37,6 +39,8 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.setMenu()
+        
+        self.tableView.tableFooterView = UIView()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -68,6 +72,12 @@ class MenuTableViewController: UITableViewController {
         
         cell.textLabel?.text = menu[indexPath.row]
         
+        if indexPath == currentCell {
+            cell.textLabel?.textColor = Utilies.hexStringToUIColor("2980b9")
+        } else {
+            cell.textLabel?.textColor = UIColor.blackColor()
+        }
+        
         return cell
     }
     
@@ -76,18 +86,18 @@ class MenuTableViewController: UITableViewController {
         switch menu[indexPath.row] {
         case "Favourites":
             if App.Memory.currentUser.loggedIn {
+                currentCell = indexPath
                 performSegueWithIdentifier("Favourites", sender: self)
             } else {
                 let alert = UIAlertController(title: "Favourites", message: "Please login to view your favourites", preferredStyle: UIAlertControllerStyle.Alert)
                 
-                alert.addAction(UIAlertAction(title: "cancel", style: .Default, handler: { (action) -> Void in
+                alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in
                     
                     tableView.deselectRowAtIndexPath(indexPath, animated: true)
                     
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Login", style: .Default, handler: { (action) -> Void in
-                    
                     let controller = A0Lock.sharedLock().newLockViewController()
                     controller.closable = true
                     controller.onAuthenticationBlock = { profile, token in
@@ -103,10 +113,13 @@ class MenuTableViewController: UITableViewController {
                         App.Memory.currentUser.profile = profile!
                         
                         // Don't forget to dismiss the Lock controller
-                        controller.dismissViewControllerAnimated(true, completion: nil)
+                        
+                        controller.dismissViewControllerAnimated(true, completion: {
+                            self.currentCell = indexPath
+                        })
                         self.setMenu()
                         self.tableView.reloadData()
-                        self.performSegueWithIdentifier("Events", sender: self)
+                        self.performSegueWithIdentifier("Favourites", sender: self)
                     }
                     A0Lock.sharedLock().presentLockController(controller, fromController: self)
                     
@@ -116,6 +129,7 @@ class MenuTableViewController: UITableViewController {
             }
         case "Logout":
             if App.Memory.currentUser.loggedIn {
+                currentCell = NSIndexPath(forRow: 0, inSection: 0)
                 let keychain = A0SimpleKeychain(service: "Auth0")
                 keychain.clearAll()
                 App.Memory.currentUser.loggedIn = false
@@ -151,8 +165,14 @@ class MenuTableViewController: UITableViewController {
                 }
                 A0Lock.sharedLock().presentLockController(controller, fromController: self)
             }
+        case "Contact Us":
+            let email = "gladwin.dos@hotmail.co.uk"
+            let url = NSURL(string: "mailto:\(email)")
+            UIApplication.sharedApplication().openURL(url!)
+            self.revealViewController().pushFrontViewController(self.revealViewController().frontViewController, animated: true)
             
         default:
+            currentCell = indexPath
             performSegueWithIdentifier("Events", sender: self)
         }
     }

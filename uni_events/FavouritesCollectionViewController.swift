@@ -32,6 +32,12 @@ class FavouritesCollectionViewController: UICollectionViewController {
         
         menuButton.action = Selector("revealToggle:")
         
+        if self.revealViewController() != nil {
+            
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        }
+        
         
     }
     

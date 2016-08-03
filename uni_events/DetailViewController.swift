@@ -26,7 +26,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var venue: UILabel!
     
-    @IBOutlet weak var findTickets: UIView!
+    
+    @IBOutlet weak var findTickets: UIButton!
     
     func UserInEventFavourites(event: Event, user: User) -> Bool {
         
@@ -62,7 +63,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             print("Add to favourites")
 //            let url = "http://127.0.0.1:8000/api/events/\(currentEvent.id)/update-favourites/"
             
-            let url = "http://uni-events-test.eu-west-1.elasticbeanstalk.com/api/events/\(currentEvent.id)/update-favourites/"
+            let url = "\(App.Memory.apiUrl)//api/events/\(currentEvent.id)/update-favourites/"
             
             let parameters = ["auth0_favourite_ids" : currentUser.profile!.userId]
             
@@ -84,7 +85,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         let ShareActionButton: UIAlertAction = UIAlertAction(title: "Share", style: .Default)
         { action -> Void in
-            print("Share")
+            let aVC = UIActivityViewController(activityItems: ["Check out \"\(App.Memory.currentEvent.title)\" on Motive!", self.poster.image!,"https://itunes.apple.com/gb/app/eveed/id1084052230?ls=1&mt=8"], applicationActivities: nil)
+            
+            self.presentViewController(aVC, animated: true, completion: nil)
         }
         actionSheetController.addAction(ShareActionButton)
         self.presentViewController(actionSheetController, animated: true, completion: nil)
@@ -147,7 +150,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        findTickets.alpha = 0.9
+        findTickets.alpha = 1.0
     }
     
     override func didReceiveMemoryWarning() {

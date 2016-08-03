@@ -18,4 +18,6 @@ class AppMemory {
     
     var currentUser = User()
     
+    let apiUrl = "http://unievents-dev.eu-west-1.elasticbeanstalk.com/"
+    
 }

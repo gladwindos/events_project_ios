@@ -11,7 +11,8 @@
 		BE3F39761D328AC2009255DF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3F39751D328AC2009255DF /* TabBarController.swift */; };
 		BE3F39781D328BDE009255DF /* FavouritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3F39771D328BDE009255DF /* FavouritesCollectionViewController.swift */; };
 		BE3F397C1D32BB56009255DF /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3F397B1D32BB56009255DF /* FavouritesCollectionViewCell.swift */; };
-		BE4505131D2D72B100BC91D1 /* FavouritesLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4505121D2D72B100BC91D1 /* FavouritesLoginViewController.swift */; };
+		BE5191561D5107B2007A806C /* TicketsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5191551D5107B2007A806C /* TicketsWebViewController.swift */; };
+		BE5191581D5240B0007A806C /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5191571D5240B0007A806C /* SearchTableViewController.swift */; };
 		BE8108531D47B5F700A4D663 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8108521D47B5F700A4D663 /* SWRevealViewController.m */; };
 		BE8108551D47BBA300A4D663 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8108541D47BBA300A4D663 /* MenuTableViewController.swift */; };
 		BE8911961D194BBE00A84C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8911951D194BBE00A84C71 /* AppDelegate.swift */; };
@@ -37,7 +38,8 @@
 		BE3F39751D328AC2009255DF /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BE3F39771D328BDE009255DF /* FavouritesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewController.swift; sourceTree = "<group>"; };
 		BE3F397B1D32BB56009255DF /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
-		BE4505121D2D72B100BC91D1 /* FavouritesLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesLoginViewController.swift; sourceTree = "<group>"; };
+		BE5191551D5107B2007A806C /* TicketsWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsWebViewController.swift; sourceTree = "<group>"; };
+		BE5191571D5240B0007A806C /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		BE8108501D47B5F600A4D663 /* uni_events-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uni_events-Bridging-Header.h"; sourceTree = "<group>"; };
 		BE8108511D47B5F700A4D663 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		BE8108521D47B5F700A4D663 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -87,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				BED333421D4910F3009237A2 /* FavouritesNavigationController.swift */,
-				BE4505121D2D72B100BC91D1 /* FavouritesLoginViewController.swift */,
 				BE3F39771D328BDE009255DF /* FavouritesCollectionViewController.swift */,
 				BE3F397B1D32BB56009255DF /* FavouritesCollectionViewCell.swift */,
 			);
@@ -147,6 +148,8 @@
 				BE89119C1D194BBE00A84C71 /* uni_events.xcdatamodeld */,
 				BEEC902D1D2EDD5F00B94BE1 /* SettingsTableViewController.swift */,
 				BE8108541D47BBA300A4D663 /* MenuTableViewController.swift */,
+				BE5191551D5107B2007A806C /* TicketsWebViewController.swift */,
+				BE5191571D5240B0007A806C /* SearchTableViewController.swift */,
 			);
 			path = uni_events;
 			sourceTree = "<group>";
@@ -314,15 +317,16 @@
 				BEEC902E1D2EDD5F00B94BE1 /* SettingsTableViewController.swift in Sources */,
 				BE8911961D194BBE00A84C71 /* AppDelegate.swift in Sources */,
 				BE8911B71D1992F300A84C71 /* Utilities.swift in Sources */,
-				BE4505131D2D72B100BC91D1 /* FavouritesLoginViewController.swift in Sources */,
 				BE3F39781D328BDE009255DF /* FavouritesCollectionViewController.swift in Sources */,
 				BE8911AD1D19535100A84C71 /* FeedTableViewCell.swift in Sources */,
+				BE5191581D5240B0007A806C /* SearchTableViewController.swift in Sources */,
 				BE89119E1D194BBE00A84C71 /* uni_events.xcdatamodeld in Sources */,
 				BED4DD261D23C88A00737544 /* AppMemory.swift in Sources */,
 				BE8911B31D195BA500A84C71 /* FeedTableViewController.swift in Sources */,
 				BE8FCF271D2516EB00E533A3 /* DetailViewController.swift in Sources */,
 				BE8108551D47BBA300A4D663 /* MenuTableViewController.swift in Sources */,
 				BE8108531D47B5F700A4D663 /* SWRevealViewController.m in Sources */,
+				BE5191561D5107B2007A806C /* TicketsWebViewController.swift in Sources */,
 				BE3F397C1D32BB56009255DF /* FavouritesCollectionViewCell.swift in Sources */,
 				BE3F39761D328AC2009255DF /* TabBarController.swift in Sources */,
 				BED4DD221D23C85100737544 /* App.swift in Sources */,

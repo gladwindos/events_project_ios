@@ -16,12 +16,18 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var title: UILabel!
     
+    @IBOutlet weak var date: UILabel!
+    
     var imageCache = NSCache()
     
     func updateUI(events:[Event], indexPath: NSIndexPath) {
         
         if let eventTitle : String = events[indexPath.row].title {
             title.text = eventTitle
+        }
+        
+        if let eventDate : String = Utilies.myDateTimeFormatter(events[indexPath.row].start_date) {
+            date.text = eventDate
         }
         
         if let imageUrl : String? = events[indexPath.row].posterUrl {

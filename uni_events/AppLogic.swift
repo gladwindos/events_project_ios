@@ -8,17 +8,23 @@
 
 import Foundation
 import UIKit
+import Lock
+import SimpleKeychain
 
 extension App {
     
 
     static func fetchEvents(completionHandler : (events: [[Event]]) -> Void) {
         
+        App.Memory.sortedEvents = []
+        
+        App.Memory.eventList = []
+        
         var counter = 0
         
         var allEvents = [[Event]]()
         
-        let url = NSURL(string: "http://uni-events-test.eu-west-1.elasticbeanstalk.com/api/events/")
+        let url = NSURL(string: "\(App.Memory.apiUrl)/api/events")
 //        let url = NSURL(string: "http://127.0.0.1:8000/api/events/")
         NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
             if error != nil {
@@ -97,9 +103,11 @@ extension App {
                     }
                     
                     
-                    
+                    App.Memory.eventList.append(newEvent)
                     
                     if allEvents.isEmpty {
+                        
+                        
                         
                         allEvents.append([])
                         
@@ -136,6 +144,79 @@ extension App {
             
             }.resume()
         
+        
+    }
+    
+    static func authenticateUser() {
+        
+        
+        let keychain = A0SimpleKeychain(service: "Auth0")
+        guard let idToken = keychain.stringForKey("id_token") else {
+            // idToken doesn't exist, user has to enter his credentials to log in
+            // Present A0Lock Login
+            //            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
+            //
+            //            })
+            return
+        }
+        // idToken exists
+        // Validate idToken
+        let client = A0Lock.sharedLock().apiClient()
+        client.fetchUserProfileWithIdToken(idToken, success: { profile in
+            
+            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+            // ✅ At this point, you can log the user into your app, by navigating to the corresponding screen
+            
+            App.Memory.currentUser.loggedIn = true
+            App.Memory.currentUser.idToken = idToken
+            App.Memory.currentUser.profile = profile
+            
+            //            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
+            //
+            //            })
+            
+            }, failure: { error in
+                // ⚠️ idToken has expired or is no longer valid
+                let keychain = A0SimpleKeychain(service: "Auth0")
+                guard let refreshToken = keychain.stringForKey("refresh_token") else {
+                    keychain.clearAll()
+                    return
+                }
+                let client = A0Lock.sharedLock().apiClient()
+                client.fetchNewIdTokenWithRefreshToken(refreshToken,
+                    parameters: nil,
+                    success: { newToken in
+                        // Just got a new idToken!
+                        // Don't forget to store it...
+                        keychain.setString(newToken.idToken, forKey: "id_token")
+                        // ✅ At this point, you can log the user into your app, by navigating to the corresponding screen
+                        client.fetchUserProfileWithIdToken(newToken.idToken,
+                            success: { profile in
+                                // Our idToken is still valid...
+                                // We store the fetched user profile
+                                keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+                                // ✅ At this point, you can log the user into your app, by navigating to the corresponding screen
+                                App.Memory.currentUser.loggedIn = true
+                                App.Memory.currentUser.idToken = newToken.idToken
+                                App.Memory.currentUser.profile = profile
+                                //                                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(tbc, animated: false, completion: {
+                                //
+                                //                                })
+                            },
+                            failure: { error in
+                                // ⚠️ idToken has expired or is no longer valid
+                                // See step 4
+                        })
+                        
+                    },
+                    failure: { error in
+                        // refreshToken is no longer valid (e.g. it has been revoked)
+                        // Cleaning stored values since they are no longer valid
+                        keychain.clearAll()
+                        // ⛔️ At this point, you should ask the user to enter his credentials again!
+                })
+        })
+
         
     }
     
