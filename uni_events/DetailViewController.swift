@@ -11,6 +11,7 @@ import Lock
 import SimpleKeychain
 import Auth0
 import Alamofire
+import Toast_Swift
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {
 
@@ -51,10 +52,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         var addOrRemove = ""
         
+        var toastMessage = ""
+        
         if UserInEventFavourites(currentEvent, user: currentUser) {
             addOrRemove = "Remove from"
+            toastMessage = "Removed from"
         } else {
             addOrRemove = "Add to"
+            toastMessage = "Added to"
         }
         
         
@@ -72,6 +77,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             Alamofire.request(.PUT, url, parameters: parameters, encoding: .JSON, headers: headers)
                 .responseJSON { response in
                     debugPrint(response)
+                    
+                    self.view.makeToast("\(toastMessage) favourites", duration: 3.0, position: .Center)
             }
             
             if self.UserInEventFavourites(currentEvent, user: currentUser) {

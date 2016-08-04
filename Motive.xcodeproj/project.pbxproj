@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5BB77A88BC396CA86DE9CEF1 /* Pods_uni_events.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C9C4A73843B690C0B63BC0 /* Pods_uni_events.framework */; };
-		BE3F39761D328AC2009255DF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3F39751D328AC2009255DF /* TabBarController.swift */; };
 		BE3F39781D328BDE009255DF /* FavouritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3F39771D328BDE009255DF /* FavouritesCollectionViewController.swift */; };
 		BE3F397C1D32BB56009255DF /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3F397B1D32BB56009255DF /* FavouritesCollectionViewCell.swift */; };
 		BE5191561D5107B2007A806C /* TicketsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5191551D5107B2007A806C /* TicketsWebViewController.swift */; };
@@ -35,7 +34,6 @@
 /* Begin PBXFileReference section */
 		69E1008DF9D04A2D71ED0B1F /* Pods-uni_events.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uni_events.release.xcconfig"; path = "Pods/Target Support Files/Pods-uni_events/Pods-uni_events.release.xcconfig"; sourceTree = "<group>"; };
 		B1C9C4A73843B690C0B63BC0 /* Pods_uni_events.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uni_events.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE3F39751D328AC2009255DF /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BE3F39771D328BDE009255DF /* FavouritesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewController.swift; sourceTree = "<group>"; };
 		BE3F397B1D32BB56009255DF /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE5191551D5107B2007A806C /* TicketsWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsWebViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +42,7 @@
 		BE8108511D47B5F700A4D663 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		BE8108521D47B5F700A4D663 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		BE8108541D47BBA300A4D663 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
-		BE8911921D194BBE00A84C71 /* uni_events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uni_events.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8911921D194BBE00A84C71 /* Motive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8911951D194BBE00A84C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE89119A1D194BBE00A84C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE89119D1D194BBE00A84C71 /* uni_events.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = uni_events.xcdatamodel; sourceTree = "<group>"; };
@@ -95,14 +93,6 @@
 			name = Favourites;
 			sourceTree = "<group>";
 		};
-		BE3F397A1D32B64E009255DF /* Tab Bar */ = {
-			isa = PBXGroup;
-			children = (
-				BE3F39751D328AC2009255DF /* TabBarController.swift */,
-			);
-			name = "Tab Bar";
-			sourceTree = "<group>";
-		};
 		BE81084F1D47B5DE00A4D663 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +107,7 @@
 		BE8911891D194BBE00A84C71 = {
 			isa = PBXGroup;
 			children = (
-				BE8911941D194BBE00A84C71 /* uni_events */,
+				BE8911941D194BBE00A84C71 /* Motive */,
 				BE8911931D194BBE00A84C71 /* Products */,
 				4D48DBC44AB041D8977DE850 /* Pods */,
 				DC893219D54842850475DA89 /* Frameworks */,
@@ -127,15 +117,14 @@
 		BE8911931D194BBE00A84C71 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE8911921D194BBE00A84C71 /* uni_events.app */,
+				BE8911921D194BBE00A84C71 /* Motive.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BE8911941D194BBE00A84C71 /* uni_events */ = {
+		BE8911941D194BBE00A84C71 /* Motive */ = {
 			isa = PBXGroup;
 			children = (
-				BE3F397A1D32B64E009255DF /* Tab Bar */,
 				BE3F39791D32B640009255DF /* Favourites */,
 				BE8FCF2A1D25174C00E533A3 /* Events */,
 				BE8FCF291D25173500E533A3 /* App Logic */,
@@ -151,6 +140,7 @@
 				BE5191551D5107B2007A806C /* TicketsWebViewController.swift */,
 				BE5191571D5240B0007A806C /* SearchTableViewController.swift */,
 			);
+			name = Motive;
 			path = uni_events;
 			sourceTree = "<group>";
 		};
@@ -194,9 +184,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE8911911D194BBE00A84C71 /* uni_events */ = {
+		BE8911911D194BBE00A84C71 /* Motive */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE8911A71D194BBE00A84C71 /* Build configuration list for PBXNativeTarget "uni_events" */;
+			buildConfigurationList = BE8911A71D194BBE00A84C71 /* Build configuration list for PBXNativeTarget "Motive" */;
 			buildPhases = (
 				217BFD57BE02833B64FB5A61 /* [CP] Check Pods Manifest.lock */,
 				BE89118E1D194BBE00A84C71 /* Sources */,
@@ -209,9 +199,9 @@
 			);
 			dependencies = (
 			);
-			name = uni_events;
+			name = Motive;
 			productName = uni_events;
-			productReference = BE8911921D194BBE00A84C71 /* uni_events.app */;
+			productReference = BE8911921D194BBE00A84C71 /* Motive.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +219,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BE89118D1D194BBE00A84C71 /* Build configuration list for PBXProject "uni_events" */;
+			buildConfigurationList = BE89118D1D194BBE00A84C71 /* Build configuration list for PBXProject "Motive" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -242,7 +232,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE8911911D194BBE00A84C71 /* uni_events */,
+				BE8911911D194BBE00A84C71 /* Motive */,
 			);
 		};
 /* End PBXProject section */
@@ -328,7 +318,6 @@
 				BE8108531D47B5F700A4D663 /* SWRevealViewController.m in Sources */,
 				BE5191561D5107B2007A806C /* TicketsWebViewController.swift in Sources */,
 				BE3F397C1D32BB56009255DF /* FavouritesCollectionViewCell.swift in Sources */,
-				BE3F39761D328AC2009255DF /* TabBarController.swift in Sources */,
 				BED4DD221D23C85100737544 /* App.swift in Sources */,
 				BED4DD201D23B76C00737544 /* DataModel.swift in Sources */,
 				BED333431D4910F3009237A2 /* FavouritesNavigationController.swift in Sources */,
@@ -449,7 +438,7 @@
 				INFOPLIST_FILE = uni_events/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gladwin.uni-events";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Motive;
 				SWIFT_OBJC_BRIDGING_HEADER = "uni_events/uni_events-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -464,7 +453,7 @@
 				INFOPLIST_FILE = uni_events/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gladwin.uni-events";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Motive;
 				SWIFT_OBJC_BRIDGING_HEADER = "uni_events/uni_events-Bridging-Header.h";
 			};
 			name = Release;
@@ -472,7 +461,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BE89118D1D194BBE00A84C71 /* Build configuration list for PBXProject "uni_events" */ = {
+		BE89118D1D194BBE00A84C71 /* Build configuration list for PBXProject "Motive" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE8911A51D194BBE00A84C71 /* Debug */,
@@ -481,7 +470,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE8911A71D194BBE00A84C71 /* Build configuration list for PBXNativeTarget "uni_events" */ = {
+		BE8911A71D194BBE00A84C71 /* Build configuration list for PBXNativeTarget "Motive" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE8911A81D194BBE00A84C71 /* Debug */,

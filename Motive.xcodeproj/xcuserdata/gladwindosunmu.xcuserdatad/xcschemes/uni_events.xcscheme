@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE8911911D194BBE00A84C71"
-               BuildableName = "uni_events.app"
-               BlueprintName = "uni_events"
-               ReferencedContainer = "container:uni_events.xcodeproj">
+               BuildableName = "Motive.app"
+               BlueprintName = "Motive"
+               ReferencedContainer = "container:Motive.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE8911911D194BBE00A84C71"
-            BuildableName = "uni_events.app"
-            BlueprintName = "uni_events"
-            ReferencedContainer = "container:uni_events.xcodeproj">
+            BuildableName = "Motive.app"
+            BlueprintName = "Motive"
+            ReferencedContainer = "container:Motive.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE8911911D194BBE00A84C71"
-            BuildableName = "uni_events.app"
-            BlueprintName = "uni_events"
-            ReferencedContainer = "container:uni_events.xcodeproj">
+            BuildableName = "Motive.app"
+            BlueprintName = "Motive"
+            ReferencedContainer = "container:Motive.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE8911911D194BBE00A84C71"
-            BuildableName = "uni_events.app"
-            BlueprintName = "uni_events"
-            ReferencedContainer = "container:uni_events.xcodeproj">
+            BuildableName = "Motive.app"
+            BlueprintName = "Motive"
+            ReferencedContainer = "container:Motive.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

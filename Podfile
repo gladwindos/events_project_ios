@@ -1,7 +1,7 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'uni_events' do
+target 'Motive' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
@@ -11,5 +11,6 @@ target 'uni_events' do
   pod 'SimpleKeychain', '~> 0.7'
   pod 'Auth0'
   pod 'Alamofire', '~> 3.4'
+  pod 'Toast-Swift', '~> 1.3.0'
 
 end

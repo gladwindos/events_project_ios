@@ -28,6 +28,9 @@ class FavouritesCollectionViewController: UICollectionViewController {
         
         self.title = "Favourites"
         
+        setFavourites()
+        self.collectionView?.reloadData()
+        
         menuButton.target = self.revealViewController()
         
         menuButton.action = Selector("revealToggle:")
@@ -37,13 +40,14 @@ class FavouritesCollectionViewController: UICollectionViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         }
-        
+        print("fav view did load")
         
     }
     
     override func viewWillAppear(animated: Bool) {
         setFavourites()
         self.collectionView?.reloadData()
+        print("fav view will appear")
     }
     
     func setFavourites() {
