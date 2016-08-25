@@ -134,6 +134,7 @@ class MenuTableViewController: UITableViewController {
                 keychain.clearAll()
                 App.Memory.currentUser.loggedIn = false
                 App.Memory.currentUser.profile = nil
+                self.view.makeToast("Logged out", duration: 3.0, position: .Center)
                 self.setMenu()
                 self.tableView.reloadData()
                 

@@ -33,27 +33,28 @@ class FeedTableViewCell: UITableViewCell {
     
     func updateUI(indexPath: NSIndexPath) {
         
+//        let allEvents = App.Memory.sortedEvents
         
+        let event = App.Memory.sortedEvents![indexPath.section][indexPath.row]
         
-        let allEvents = App.Memory.sortedEvents
-        
-        if let eventTitle : String = allEvents![indexPath.section][indexPath.row].title {
+        if let eventTitle : String = event.title {
             self.title.text = eventTitle
         }
-        if let eventLocation : String? = allEvents![indexPath.section][indexPath.row].venue_name {
+        if let eventLocation : String? = event.venue_name {
             self.location.text = eventLocation
         }
         
-        self.poster.image = UIImage(named: "white")
-        self.cellImageView.image = UIImage(named: "white")
+        self.poster.image = UIImage(named: "placeholder")
+        self.cellImageView.image = UIImage(named: "light_grey")
         
-        if let imageUrl : String? = allEvents![indexPath.section][indexPath.row].posterUrl {
+        if let imageUrl : String? = event.posterUrl {
             
             if let image = imageCache.objectForKey(imageUrl!) as? UIImage {
-                
+                print("cache")
                 self.poster.image = image
                 self.cellImageView.image = image
             } else {
+                print("else")
                 
                 NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: imageUrl!)!, completionHandler: { (data, response, error) in
                     

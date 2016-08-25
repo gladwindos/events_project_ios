@@ -32,7 +32,7 @@
         <!--Menu Table View Controller-->
         <scene sceneID="QqO-Ns-YXn">
             <objects>
-                <tableViewController id="BQC-E6-7b2" customClass="MenuTableViewController" customModule="uni_events" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="BQC-E6-7b2" customClass="MenuTableViewController" customModule="Motive" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hqP-uo-wZz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,20 +64,20 @@
         <!--Events-->
         <scene sceneID="Is5-Wx-vYw">
             <objects>
-                <tableViewController storyboardIdentifier="Main Feed" id="hbw-mx-BMU" customClass="FeedTableViewController" customModule="uni_events" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Main Feed" id="hbw-mx-BMU" customClass="FeedTableViewController" customModule="Motive" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vbc-3b-0ga">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="events cell" rowHeight="140" id="rdf-9Z-Pnh" customClass="FeedTableViewCell" customModule="uni_events" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="events cell" rowHeight="140" id="rdf-9Z-Pnh" customClass="FeedTableViewCell" customModule="Motive" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdf-9Z-Pnh" id="rs7-YT-nq5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SQe-MQ-M1D">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="light_grey" translatesAutoresizingMaskIntoConstraints="NO" id="SQe-MQ-M1D">
                                             <rect key="frame" x="8" y="0.0" width="440" height="140"/>
                                         </imageView>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pEW-BM-Do4">
@@ -118,7 +118,7 @@
                                             </view>
                                             <blurEffect style="light"/>
                                         </visualEffectView>
-                                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barfest_image" translatesAutoresizingMaskIntoConstraints="NO" id="B8F-u6-S9w">
+                                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="B8F-u6-S9w">
                                             <rect key="frame" x="457" y="0.0" width="143" height="140"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="B8F-u6-S9w" secondAttribute="height" multiplier="1:1" constant="3" id="02m-mR-yu8"/>
@@ -193,7 +193,7 @@
         <!--Favourites Collection View Controller-->
         <scene sceneID="Q45-Ny-3QU">
             <objects>
-                <collectionViewController id="5pB-t6-Nos" customClass="FavouritesCollectionViewController" customModule="uni_events" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="5pB-t6-Nos" customClass="FavouritesCollectionViewController" customModule="Motive" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sv4-PG-INy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -205,7 +205,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collection view cell" id="fYF-Kn-3F6" customClass="FavouritesCollectionViewCell" customModule="uni_events" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collection view cell" id="fYF-Kn-3F6" customClass="FavouritesCollectionViewCell" customModule="Motive" customModuleProvider="target">
                                 <rect key="frame" x="12" y="64" width="577" height="287"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -305,7 +305,7 @@
         <!--Search-->
         <scene sceneID="Fm5-QW-Ywq">
             <objects>
-                <tableViewController storyboardIdentifier="Search" title="Search" id="zow-Eg-BOW" customClass="SearchTableViewController" customModule="uni_events" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Search" title="Search" id="zow-Eg-BOW" customClass="SearchTableViewController" customModule="Motive" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kv2-T9-JBd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -353,7 +353,7 @@
         <!--Stamina -->
         <scene sceneID="wtA-eR-mgW">
             <objects>
-                <viewController title="Stamina " id="FZk-tN-Hyc" customClass="DetailViewController" customModule="uni_events" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Stamina " id="FZk-tN-Hyc" customClass="DetailViewController" customModule="Motive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vY9-4g-u1p"/>
                         <viewControllerLayoutGuide type="bottom" id="mkl-4u-M6E"/>
@@ -635,7 +635,7 @@
         <!--Tickets-->
         <scene sceneID="uZz-ps-MhE">
             <objects>
-                <viewController title="Tickets" id="Abe-K7-Jjz" customClass="TicketsWebViewController" customModule="uni_events" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Tickets" id="Abe-K7-Jjz" customClass="TicketsWebViewController" customModule="Motive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RZU-V5-Jk0"/>
                         <viewControllerLayoutGuide type="bottom" id="Gbb-hy-hie"/>
@@ -688,11 +688,12 @@
     <resources>
         <image name="Menu-50" width="25" height="25"/>
         <image name="Search-50" width="25" height="25"/>
-        <image name="barfest_image" width="1024" height="1024"/>
+        <image name="light_grey" width="700" height="525"/>
+        <image name="placeholder" width="600" height="400"/>
         <image name="stamina" width="949" height="949"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bHJ-0V-Y2B"/>
-        <segue reference="hGi-6g-mZo"/>
+        <segue reference="rzJ-Ph-Wvn"/>
     </inferredMetricsTieBreakers>
 </document>

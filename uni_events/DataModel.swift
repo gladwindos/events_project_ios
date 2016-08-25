@@ -16,6 +16,7 @@ class Event : NSObject {
     var title : String = ""
     var university = [Int]()
     var posterUrl = ""
+    var poster = UIImage(named: "placeholder") 
     var start_date : NSDate = NSDate()
     var end_date : NSDate = NSDate()
     var ticketLink : String = ""
