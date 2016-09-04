@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Utilies {
+class Utilities {
     
     static func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
@@ -42,7 +42,7 @@ class Utilies {
         
         let time = date
         let timeFormatter = NSDateFormatter()
-        timeFormatter.timeZone = NSTimeZone(name: "UTC")
+//        timeFormatter.timeZone = NSTimeZone(name: "UTC")
         timeFormatter.timeStyle = .ShortStyle
         
         let dateString = dateFormatter.stringFromDate(mydate)

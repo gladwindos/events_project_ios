@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SearchTableViewController: UITableViewController {
     
@@ -43,6 +44,7 @@ class SearchTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
     
     deinit {
@@ -75,7 +77,7 @@ class SearchTableViewController: UITableViewController {
         cell.textLabel?.text = event.title
         cell.textLabel?.font = UIFont.systemFontOfSize(18)
         
-        cell.detailTextLabel?.text = Utilies.myDateTimeFormatter(event.start_date)
+        cell.detailTextLabel?.text = Utilities.myDateTimeFormatter(event.start_date)
         cell.detailTextLabel?.font = UIFont.systemFontOfSize(12)
         cell.detailTextLabel?.textColor = UIColor.grayColor()
         

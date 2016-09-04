@@ -73,7 +73,7 @@ class MenuTableViewController: UITableViewController {
         cell.textLabel?.text = menu[indexPath.row]
         
         if indexPath == currentCell {
-            cell.textLabel?.textColor = Utilies.hexStringToUIColor("2980b9")
+            cell.textLabel?.textColor = Utilities.hexStringToUIColor("2980b9")
         } else {
             cell.textLabel?.textColor = UIColor.blackColor()
         }
@@ -167,7 +167,7 @@ class MenuTableViewController: UITableViewController {
                 A0Lock.sharedLock().presentLockController(controller, fromController: self)
             }
         case "Contact Us":
-            let email = "gladwin.dos@hotmail.co.uk"
+            let email = "motive.app1@gmail.comx"
             let url = NSURL(string: "mailto:\(email)")
             UIApplication.sharedApplication().openURL(url!)
             self.revealViewController().pushFrontViewController(self.revealViewController().frontViewController, animated: true)

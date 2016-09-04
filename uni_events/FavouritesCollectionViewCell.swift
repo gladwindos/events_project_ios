@@ -26,7 +26,7 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
             title.text = eventTitle
         }
         
-        if let eventDate : String = Utilies.myDateTimeFormatter(events[indexPath.row].start_date) {
+        if let eventDate : String = Utilities.myDateTimeFormatter(events[indexPath.row].start_date) {
             date.text = eventDate
         }
         

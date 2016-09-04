@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Lock
 import SimpleKeychain
+import Alamofire
 
 extension App {
     
@@ -136,7 +137,6 @@ extension App {
                 }
                 
                 completionHandler(events: allEvents)
-                print("fetch")
                 
             } catch let jsonError {
                 print(jsonError)
@@ -145,6 +145,25 @@ extension App {
             }.resume()
         
         
+    }
+    
+    static func tokenAuth() {
+        // parameters will be username and password
+        
+        let url = "http://localhost:8000/api-token-auth/"
+        
+        let parameters = ["username" : "gladwin", "password" : "tundetobi11"]
+        
+        let headers = ["Accept": "application/json"]
+        
+        Alamofire.request(.POST, url, parameters: parameters, encoding: .JSON, headers: headers)
+            .responseJSON { response in
+                debugPrint(response)
+                
+                // will return token which I will save in keychain
+                
+        }
+    
     }
     
     static func authenticateUser() {
@@ -220,6 +239,50 @@ extension App {
         
     }
     
+    static func authenticateUser2() {
+        
+        // Check if token exists
+        guard let token = A0SimpleKeychain().stringForKey("token") else {
+            // User doesn't exist, user has to enter login details
+            
+            // Present login screen
+            
+            return
+        }
+        
+        // Token exists
+        // Validate token
+        
+        let url = "http://127.0.0.1:8000/api/users/user-detail/"
+        
+        let headers = ["Accept": "application/json", "Authorization" : "Token c40ef966910e2b27239d8e2a7a28f4cdb756c094"]
+        
+        Alamofire.request(.GET, url, encoding: .JSON, headers: headers)
+            .responseJSON { response in
+                debugPrint(response)
+                
+                if let json = response.result.value {
+                    // request gives user info
+                    
+                    if let id = json["id"] {
+                        
+                        if let email = json["email"] {
+                            
+                            if let username = json["username"] {
+                                
+                            }
+                        }
+                    }
+                } else {
+                    // request failed (Probably invalid token)
+                    // So show login screen and login user
+                    
+                }
+        }
+        
+        
+        // let jwt = A0SimpleKeychain().setString(jwt, forKey:"auth0-user-jwt")
+    }
 
     
     static func getDateFromString(string: String) -> NSDate {

@@ -137,7 +137,6 @@
 				BE89119C1D194BBE00A84C71 /* uni_events.xcdatamodeld */,
 				BEEC902D1D2EDD5F00B94BE1 /* SettingsTableViewController.swift */,
 				BE8108541D47BBA300A4D663 /* MenuTableViewController.swift */,
-				BE5191551D5107B2007A806C /* TicketsWebViewController.swift */,
 				BE5191571D5240B0007A806C /* SearchTableViewController.swift */,
 			);
 			name = Motive;
@@ -169,6 +168,7 @@
 				BE8911B21D195BA500A84C71 /* FeedTableViewController.swift */,
 				BE8911AC1D19535100A84C71 /* FeedTableViewCell.swift */,
 				BE8FCF261D2516EB00E533A3 /* DetailViewController.swift */,
+				BE5191551D5107B2007A806C /* TicketsWebViewController.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";

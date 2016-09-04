@@ -26,6 +26,8 @@ class FavouritesCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        
         self.title = "Favourites"
         
         setFavourites()
@@ -33,7 +35,7 @@ class FavouritesCollectionViewController: UICollectionViewController {
         
         menuButton.target = self.revealViewController()
         
-        menuButton.action = Selector("revealToggle:")
+        menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         
         if self.revealViewController() != nil {
             

@@ -44,18 +44,15 @@ class FeedTableViewCell: UITableViewCell {
             self.location.text = eventLocation
         }
         
-        self.poster.image = UIImage(named: "placeholder")
+        self.poster.image = UIImage(named: "light_grey")
         self.cellImageView.image = UIImage(named: "light_grey")
         
         if let imageUrl : String? = event.posterUrl {
             
             if let image = imageCache.objectForKey(imageUrl!) as? UIImage {
-                print("cache")
                 self.poster.image = image
                 self.cellImageView.image = image
-            } else {
-                print("else")
-                
+            } else {                
                 NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: imageUrl!)!, completionHandler: { (data, response, error) in
                     
                     if error != nil {

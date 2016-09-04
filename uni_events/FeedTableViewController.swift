@@ -46,7 +46,7 @@ class FeedTableViewController: UITableViewController {
         
         menuButton.target = self.revealViewController()
         
-        menuButton.action = Selector("revealToggle:")
+        menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         
         if self.revealViewController() != nil {
             
@@ -59,6 +59,10 @@ class FeedTableViewController: UITableViewController {
         
     }
     override func viewWillAppear(animated: Bool) {
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont.systemFontOfSize(17, weight: UIFontWeightSemibold),  NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        print(App.Memory.currentUser.loggedIn)
     }
     
     override func didReceiveMemoryWarning() {
@@ -114,6 +118,8 @@ class FeedTableViewController: UITableViewController {
         cell.updateUI(indexPath)
         
         cell.layoutMargins = UIEdgeInsetsZero
+        
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         return cell
     }
