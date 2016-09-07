@@ -99,7 +99,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         let ShareActionButton: UIAlertAction = UIAlertAction(title: "Share", style: .Default)
         { action -> Void in
-            let aVC = UIActivityViewController(activityItems: ["Check out \"\(App.Memory.currentEvent.title)\" on Motive!", self.poster.image!,"https://itunes.apple.com/gb/app/eveed/id1084052230?ls=1&mt=8"], applicationActivities: nil)
+            let aVC = UIActivityViewController(activityItems: ["Check out \"\(App.Memory.currentEvent.title)\" on Motive!", self.poster.image!,"https://itunes.apple.com/gb/app/motive/id1141018976?ls=1&mt=8"], applicationActivities: nil)
             
             self.presentViewController(aVC, animated: true, completion: nil)
         }
