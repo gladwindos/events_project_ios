@@ -20,4 +20,5 @@ class AppMemory {
     
     let apiUrl = "http://unievents-dev.eu-west-1.elasticbeanstalk.com/"
     
+    var myNotificationCenter = MyNotificationCenter()
 }

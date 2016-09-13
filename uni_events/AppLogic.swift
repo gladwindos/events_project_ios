@@ -42,6 +42,11 @@ extension App {
                     let newEvent = Event()
                     
                     if let id = dict["id"] as? NSInteger {
+                        
+                        if App.Memory.myNotificationCenter == true {
+                            print("True")
+                        }
+                        
                         newEvent.id = id
                     }
                     

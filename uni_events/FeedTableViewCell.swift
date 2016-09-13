@@ -40,8 +40,12 @@ class FeedTableViewCell: UITableViewCell {
         if let eventTitle : String = event.title {
             self.title.text = eventTitle
         }
-        if let eventLocation : String? = event.venue_name {
-            self.location.text = eventLocation
+        if let eventVenue : String? = event.venue_name {
+            self.location.text = eventVenue
+            
+            if let eventCity : String? = event.venue_city {
+                self.location.text = "\(eventVenue!) (\(eventCity!))"
+            }
         }
         
         self.poster.image = UIImage(named: "light_grey")

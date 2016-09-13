@@ -33,9 +33,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     func UserInEventFavourites(event: Event, user: User) -> Bool {
         print(user.profile?.userId)
         print(event.favourites_ids)
-        if event.favourites_ids.contains(user.profile!.userId) && user.profile?.userId.characters.count > 0 {
-            
-            return true
+        if let userId =  user.profile?.userId {
+            if event.favourites_ids.contains(userId) && userId.characters.count > 0 {
+                
+                return true
+            }
         }
         return false
     }
@@ -90,8 +92,47 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 if self.UserInEventFavourites(currentEvent, user: currentUser) {
                     // user has just been removed from favourites
                     currentEvent.favourites_ids.removeObject(currentUser.profile!.userId)
+                    
+                    let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications
+                    
+                    for oneEvent in scheduledNotifications! {
+                        let oldNotification = oneEvent as UILocalNotification
+                        let userInfoCurrent = oldNotification.userInfo! as? [String:AnyObject]
+                        let eventId = userInfoCurrent!["eventId"]! as? Int
+                        if eventId == currentEvent.id {
+                            UIApplication.sharedApplication().cancelLocalNotification(oldNotification)
+                        } else {
+                            
+                        }
+                    }
+                    
                 } else {
+                    // User added to favourites
                     currentEvent.favourites_ids.append(currentUser.profile!.userId)
+                    
+                    // Add notification for this event
+
+                    let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+                    
+                    UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+                    
+                    let notification = UILocalNotification()
+                    
+                    let calender = NSCalendar.currentCalendar()
+                    
+                    let fireDate = calender.dateByAddingUnit(.Day, value: -1, toDate: currentEvent.start_date, options: [])
+                    
+                    notification.fireDate = fireDate
+                    
+                    notification.alertBody = "\(currentEvent.title) is tomorrow! Are you ready to turn up?"
+                    
+                    notification.alertAction = "view"
+                    
+                    notification.soundName = UILocalNotificationDefaultSoundName
+                    
+                    notification.userInfo = ["eventId": currentEvent.id]
+                    
+                    UIApplication.sharedApplication().scheduleLocalNotification(notification)
                 }
             }
         }
@@ -113,6 +154,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.viewDidLoad), name: UIApplicationDidBecomeActiveNotification, object: nil)
         
         let currentEvent = App.Memory.currentEvent
         
@@ -155,9 +198,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 
             }).resume()
         }
+        
+        App.Memory.myNotificationCenter.sentFromNotification = false
+
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        
         if let eventTitle : String = App.Memory.currentEvent.title {
             
             var fontSize : CGFloat = 17

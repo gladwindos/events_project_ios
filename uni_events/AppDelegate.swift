@@ -19,6 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        if let options = launchOptions {
+            if let notification = options[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+                if let userInfo = notification.userInfo {
+                    App.Memory.myNotificationCenter.sentFromNotification = true
+                    App.Memory.myNotificationCenter.eventId = (userInfo["eventId"] as? Int)!
+                }
+            }
+        }
+        
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         UINavigationBar.appearance().barTintColor = Utilities.hexStringToUIColor("2980b9")
@@ -26,6 +36,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        if let userInfo = notification.userInfo {
+            if let eventId = userInfo["eventId"] as? Int {
+                App.Memory.myNotificationCenter.sentFromNotification = true
+                App.Memory.myNotificationCenter.eventId = eventId
+                if let events = App.Memory.eventList as? [Event] {
+                    for event in events {
+                        if eventId == event.id {
+                            print("Found Id")
+                            App.Memory.currentEvent = event
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func applicationWillResignActive(application: UIApplication) {

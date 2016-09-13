@@ -35,3 +35,10 @@ class User : NSObject {
     var idToken : String = ""
     
 }
+
+class MyNotificationCenter : NSObject {
+    
+    var sentFromNotification = false
+    
+    var eventId = 0
+}
