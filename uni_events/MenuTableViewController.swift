@@ -167,7 +167,7 @@ class MenuTableViewController: UITableViewController {
                 A0Lock.sharedLock().presentLockController(controller, fromController: self)
             }
         case "Contact Us":
-            let email = "motive.app1@gmail.comx"
+            let email = "motive.app1@gmail.com"
             let url = NSURL(string: "mailto:\(email)")
             UIApplication.sharedApplication().openURL(url!)
             self.revealViewController().pushFrontViewController(self.revealViewController().frontViewController, animated: true)
