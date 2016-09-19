@@ -166,6 +166,9 @@ class MenuTableViewController: UITableViewController {
                 }
                 A0Lock.sharedLock().presentLockController(controller, fromController: self)
             }
+//        case "Call a Cab":
+//            currentCell = indexPath
+//            performSegueWithIdentifier("Call a Cab", sender: self)
         case "Contact Us":
             let email = "motive.app1@gmail.com"
             let url = NSURL(string: "mailto:\(email)")

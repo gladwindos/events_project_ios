@@ -54,11 +54,36 @@
                     <connections>
                         <segue destination="kY7-Gz-QOm" kind="custom" identifier="Events" customClass="SWRevealViewControllerSeguePushController" id="bHJ-0V-Y2B"/>
                         <segue destination="6Cv-R7-V2L" kind="custom" identifier="Favourites" customClass="SWRevealViewControllerSeguePushController" id="CuO-so-rZu"/>
+                        <segue destination="AqO-hx-3Y2" kind="custom" identifier="Call a Cab" customClass="SWRevealViewControllerSeguePushController" id="vhF-mh-3Sq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ly8-I8-Mbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1134" y="-1615"/>
+        </scene>
+        <!--Call a Cab-->
+        <scene sceneID="y8v-GH-rHj">
+            <objects>
+                <viewController id="8D2-te-J3o" customClass="CabViewController" customModule="Motive" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k5X-At-SJM"/>
+                        <viewControllerLayoutGuide type="bottom" id="gad-1D-vdy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dLY-U9-ccH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Call a Cab" id="g1z-aK-H5X">
+                        <barButtonItem key="leftBarButtonItem" image="Menu-50" id="A2j-tT-8zW"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="A2j-tT-8zW" id="Pwh-sC-zDH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SrS-bM-qV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1974" y="-2522"/>
         </scene>
         <!--Events-->
         <scene sceneID="Is5-Wx-vYw">
@@ -739,6 +764,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQv-kO-gMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2107" y="-344"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nSU-1V-auS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AqO-hx-3Y2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bhj-Ur-yJ8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8D2-te-J3o" kind="relationship" relationship="rootViewController" id="P0Y-Mi-O5O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ac-am-lYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134" y="-2522"/>
         </scene>
     </scenes>
     <resources>

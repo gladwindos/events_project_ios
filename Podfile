@@ -12,5 +12,7 @@ target 'Motive' do
   pod 'Auth0'
   pod 'Alamofire', '~> 3.4'
   pod 'Toast-Swift', '~> 1.3.0'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end
