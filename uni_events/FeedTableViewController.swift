@@ -33,7 +33,7 @@ class FeedTableViewController: UITableViewController {
         
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         
-        App.fetchEvents { (events) in
+        App.fetchEvents2 { (events) in
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.view.hideToastActivity()
