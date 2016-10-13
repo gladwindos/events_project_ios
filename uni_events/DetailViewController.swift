@@ -31,8 +31,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var findTickets: UIButton!
     
     func UserInEventFavourites(event: Event, user: User) -> Bool {
-        print(user.profile?.userId)
-        print(event.favourites_ids)
         if let userId =  user.profile?.userId {
             if event.favourites_ids.contains(userId) && userId.characters.count > 0 {
                 

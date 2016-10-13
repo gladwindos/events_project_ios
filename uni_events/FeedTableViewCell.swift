@@ -44,7 +44,7 @@ class FeedTableViewCell: UITableViewCell {
             self.location.text = eventVenue
             
             if let eventCity : String? = event.venue_city {
-                self.location.text = "\(eventVenue!) (\(eventCity!))"
+                self.location.text = "\(eventVenue!), \(eventCity!)"
             }
         }
         

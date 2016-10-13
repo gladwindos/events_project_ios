@@ -10,9 +10,17 @@ target 'Motive' do
   pod 'Lock', '~> 1.24'
   pod 'SimpleKeychain', '~> 0.7'
   pod 'Auth0'
-  pod 'Alamofire', '~> 3.4'
-  pod 'Toast-Swift', '~> 1.3.0'
+  pod 'Alamofire', '~> 3.0'
+  pod 'Toast-Swift'
   pod 'Fabric'
   pod 'Crashlytics'
+  
+  post_install do |installer|
+      installer.pods_project.targets.each do |target|
+          target.build_configurations.each do |config|
+              config.build_settings['SWIFT_VERSION'] = '2.3'
+          end
+      end
+  end
 
 end

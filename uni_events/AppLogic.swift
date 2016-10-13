@@ -14,7 +14,7 @@ import Alamofire
 
 extension App {
     
-    static func fetchEvents2(completionHandler : (events: [[Event]]) -> Void) {
+    static func fetchEvents2(completionHandler : (_: [[Event]]) -> Void) {
         
         let url = "\(App.Memory.apiUrl)/api/events"
         
@@ -49,7 +49,6 @@ extension App {
                         
                         if let title = dict["title"] as? String {
                             newEvent.title = title
-                            print(title)
                         }
                         
                         if let university = dict["university"] as? [Int] {
@@ -106,6 +105,12 @@ extension App {
                             newEvent.favourites_ids = favourite_ids
                         }
                         
+                        let calendar = NSCalendar.currentCalendar()
+                        let yesterday = calendar.dateByAddingUnit(.Day, value: -1, toDate: NSDate(), options: [])
+                        
+                        if newEvent.start_date >= yesterday! {
+                            print("yhh")
+                            
                         App.Memory.eventList.append(newEvent)
                         
                         if allEvents.isEmpty {
@@ -131,11 +136,11 @@ extension App {
                             }
                             
                         }
-                        
+                    }
                         App.Memory.sortedEvents = allEvents
                         
                     }
-                    completionHandler(events: allEvents)
+                    completionHandler(allEvents)
                 }
                 catch {
                     print(error)
@@ -144,6 +149,8 @@ extension App {
             }
         }
     }
+    
+
     
 //    func parseData(JSONData : NSData) {
 //        
@@ -504,20 +511,20 @@ extension App {
     static func authenticateUser2() {
         
         // Check if token exists
-        guard let token = A0SimpleKeychain().stringForKey("token") else {
-            // User doesn't exist, user has to enter login details
-            
-            // Present login screen
-            
-            return
-        }
+//        guard let token = A0SimpleKeychain().stringForKey("token") else {
+//            // User doesn't exist, user has to enter login details
+//            
+//            // Present login screen
+//            
+//            return
+//        }
         
         // Token exists
         // Validate token
         
-        let url = "http://127.0.0.1:8000/api/users/user-detail/"
+        let url = "http://127.0.0.1:8000/api/users/user-profile/"
         
-        let headers = ["Accept": "application/json", "Authorization" : "Token c40ef966910e2b27239d8e2a7a28f4cdb756c094"]
+        let headers = ["Accept": "application/json", "Authorization" : "Token 95648eca230956d1179ffe99bd8851aa8ce09997"]
         
         Alamofire.request(.GET, url, encoding: .JSON, headers: headers)
             .responseJSON { response in
@@ -550,10 +557,26 @@ extension App {
     static func getDateFromString(string: String) -> NSDate {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssz"
-        return dateFormatter.dateFromString(string)!
+        
+        if let dateString = dateFormatter.dateFromString(string) {
+            return dateString
+        }
+        
+        let calendar = NSCalendar.currentCalendar()
+        let twoDaysAgo = calendar.dateByAddingUnit(.Day, value: -2, toDate: NSDate(), options: [])
+        return twoDaysAgo!
+        
     }
 }
 
 
+public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs === rhs || lhs.compare(rhs) == .OrderedSame
+}
 
+public func <(lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.compare(rhs) == .OrderedAscending
+}
+
+extension NSDate: Comparable { }
 

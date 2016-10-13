@@ -26,6 +26,8 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        App.authenticateUser2()
+        
         self.title = "Search"
         
         self.tableView.tableFooterView = UIView()
